@@ -1,42 +1,49 @@
-// Sklandus slinkimas prie sekcijų
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  });
-});
+// Rodo arba slepia mygtuką "Į viršų"
+const topBtn = document.getElementById("topBtn");
 
-// Grįžti į viršų mygtuko logika
-const topBtn = document.createElement('button');
-topBtn.textContent = '↑ Į viršų';
-topBtn.id = 'topBtn';
-document.body.appendChild(topBtn);
-
-topBtn.style.position = 'fixed';
-topBtn.style.bottom = '30px';
-topBtn.style.right = '30px';
-topBtn.style.padding = '10px 15px';
-topBtn.style.backgroundColor = '#1a4e80';
-topBtn.style.color = 'white';
-topBtn.style.border = 'none';
-topBtn.style.borderRadius = '6px';
-topBtn.style.cursor = 'pointer';
-topBtn.style.display = 'none';
-topBtn.style.zIndex = '1000';
-
-topBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    topBtn.style.display = 'block';
+window.onscroll = function () {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
   } else {
-    topBtn.style.display = 'none';
+    topBtn.style.display = "none";
   }
+};
+
+// Grąžina į puslapio viršų
+topBtn.onclick = function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Galerijos peržiūra (lightbox)
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll(".gallery img");
+
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      const overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100vw";
+      overlay.style.height = "100vh";
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      overlay.style.display = "flex";
+      overlay.style.alignItems = "center";
+      overlay.style.justifyContent = "center";
+      overlay.style.zIndex = "9999";
+
+      const largeImg = document.createElement("img");
+      largeImg.src = img.src;
+      largeImg.style.maxWidth = "90%";
+      largeImg.style.maxHeight = "90%";
+      largeImg.style.borderRadius = "10px";
+
+      overlay.appendChild(largeImg);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener("click", () => {
+        overlay.remove();
+      });
+    });
+  });
 });
