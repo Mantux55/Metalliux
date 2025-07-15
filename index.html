@@ -7,59 +7,88 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header su meniu -->
   <header>
-    <h1>Metalliux</h1>
-    <nav>
-      <ul>
-        <li><a href="#balkonai">Balkonai</a></li>
-        <li><a href="#tureklai">Turėklai</a></li>
-        <li><a href="#vartai">Vartai</a></li>
-        <li><a href="#kontaktai">Kontaktai</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>Metalliux</h1>
+      <nav>
+        <ul>
+          <li><a href="#apie">Apie mus</a></li>
+          <li><a href="#paslaugos">Paslaugos</a></li>
+          <li><a href="#galerija">Galerija</a></li>
+          <li><a href="#atsiliepimai">Atsiliepimai</a></li>
+          <li><a href="#kontaktai">Kontaktai</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="balkonai" class="category">
-      <h2>Balkonai</h2>
-      <div class="gallery">
-        <div class="item">
-          <img src="https://via.placeholder.com/300x200" alt="Balkonas">
-          <p>Klasikinis metalinis balkonas su stiklu.</p>
-        </div>
-        <!-- Čia įkelk daugiau nuotraukų -->
-      </div>
-    </section>
+  <!-- Hero sekcija -->
+  <section class="hero">
+    <div class="container">
+      <h2>Kokybiški metalo gaminiai Jūsų namams ir verslui</h2>
+      <p>Balkonai, turėklai, vartai ir dar daugiau</p>
+    </div>
+  </section>
 
-    <section id="tureklai" class="category">
-      <h2>Turėklai</h2>
-      <div class="gallery">
-        <div class="item">
-          <img src="https://via.placeholder.com/300x200" alt="Turėklai">
-          <p>Modernūs turėklai laiptams ar balkonui.</p>
-        </div>
-      </div>
-    </section>
+  <!-- Apie mus -->
+  <section id="apie" class="section">
+    <div class="container">
+      <h2>Apie mus</h2>
+      <p>"Metalliux" specializuojasi metalo gaminių gamyboje – nuo balkonų ir turėklų iki individualių konstrukcijų. Dirbame tik su kokybiškomis medžiagomis ir užtikriname patikimą aptarnavimą.</p>
+    </div>
+  </section>
 
-    <section id="vartai" class="category">
-      <h2>Vartai</h2>
-      <div class="gallery">
-        <div class="item">
-          <img src="https://via.placeholder.com/300x200" alt="Vartai">
-          <p>Tvirti metaliniai vartai su unikaliu dizainu.</p>
-        </div>
-      </div>
-    </section>
+  <!-- Paslaugos -->
+  <section id="paslaugos" class="section">
+    <div class="container">
+      <h2>Paslaugos</h2>
+      <ul class="services">
+        <li>Balkonų gamyba</li>
+        <li>Turėklai</li>
+        <li>Tvorelės ir vartai</li>
+        <li>Laiptų konstrukcijos</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="kontaktai" class="contact">
+  <!-- Galerija -->
+  <section id="galerija" class="section">
+    <div class="container">
+      <h2>Galerija</h2>
+      <div class="gallery">
+        <!-- Čia bus įkeltos nuotraukos su JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Atsiliepimai -->
+  <section id="atsiliepimai" class="section">
+    <div class="container">
+      <h2>Atsiliepimai</h2>
+      <div class="testimonials">
+        <blockquote>
+          "Puikus darbas! Greitai ir kokybiškai!" – Tomas
+        </blockquote>
+        <blockquote>
+          "Rekomenduoju 100%!" – Ieva
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontaktai -->
+  <section id="kontaktai" class="section">
+    <div class="container">
       <h2>Kontaktai</h2>
       <p>El. paštas: <a href="mailto:Mantasmantas318@gmail.com">Mantasmantas318@gmail.com</a></p>
-      <p>Telefonas: <a href="tel:+37068193215">068193215</a></p>
-    </section>
-  </main>
+      <p>Telefonas: <a href="tel:068193215">068193215</a></p>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Metalliux. Visos teisės saugomos.</p>
-  </footer>
+  <!-- Į viršų mygtukas -->
+  <button id="topBtn">&#8679; Į viršų</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
