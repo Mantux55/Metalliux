@@ -1,16 +1,18 @@
 /* style.css */
 
 :root {
-  --primary-color: #e8f1f9;
+  --primary-color: #ffffff;
   --accent-color: #4a90e2;
-  --text-color: #333;
-  --light-gray: #f8f8f8;
+  --background-light: #f0f4f8;
+  --text-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hover-color: #357ac9;
 }
 
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--primary-color);
+  background: var(--background-light);
   color: var(--text-color);
   scroll-behavior: smooth;
 }
@@ -18,35 +20,50 @@ body {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 header {
-  background: white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: var(--primary-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px var(--shadow-color);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 header h1 {
+  color: var(--accent-color);
   margin: 0;
+}
+
+.header-contact a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.header-contact a:hover {
   color: var(--accent-color);
 }
 
 nav ul {
-  list-style: none;
   display: flex;
-  gap: 1rem;
+  list-style: none;
+  gap: 1.5rem;
   padding: 0;
-  margin: 0;
+  margin: 1rem 0;
+  justify-content: center;
 }
 
 nav a {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 nav a:hover {
@@ -54,16 +71,37 @@ nav a:hover {
 }
 
 .hero {
-  background: var(--accent-color);
-  color: white;
-  padding: 4rem 0;
+  background: url('hero.jpg') center/cover no-repeat;
+  padding: 6rem 1rem;
   text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+
+.hero h2,
+.hero p {
+  position: relative;
+  z-index: 1;
+  margin: 0.5rem 0;
 }
 
 .section {
-  padding: 4rem 0;
-  background: white;
-  margin-top: 1rem;
+  background: var(--primary-color);
+  margin-top: 2rem;
+  padding: 3rem 1rem;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border-radius: 12px;
 }
 
 .services li {
@@ -80,20 +118,12 @@ nav a:hover {
 .gallery img {
   width: 100%;
   border-radius: 8px;
-  cursor: pointer;
+  box-shadow: 0 2px 6px var(--shadow-color);
   transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
-  transform: scale(1.03);
-}
-
-.testimonials blockquote {
-  font-style: italic;
-  margin: 1rem 0;
-  background: var(--light-gray);
-  padding: 1rem;
-  border-left: 4px solid var(--accent-color);
+  transform: scale(1.05);
 }
 
 #kontaktai a {
@@ -101,14 +131,18 @@ nav a:hover {
   text-decoration: none;
 }
 
+#kontaktai a:hover {
+  text-decoration: underline;
+}
+
 #topBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: var(--accent-color);
+  padding: 0.7rem 1rem;
+  background: var(--accent-color);
   color: white;
   border: none;
-  padding: 0.8rem 1rem;
   border-radius: 8px;
   cursor: pointer;
   display: none;
@@ -116,20 +150,29 @@ nav a:hover {
 }
 
 #topBtn:hover {
-  background-color: #357ac9;
+  background: var(--hover-color);
 }
 
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-contact {
+    margin-top: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
   }
 
   .hero h2 {
     font-size: 1.5rem;
-  }
-
-  .gallery {
-    grid-template-columns: 1fr;
   }
 }
