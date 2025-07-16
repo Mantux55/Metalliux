@@ -1,8 +1,6 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Į viršų mygtuko funkcionalumas
+  // Mygtukas "Į viršų"
   const topBtn = document.getElementById('topBtn');
 
   window.addEventListener('scroll', () => {
@@ -20,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Lightbox galerijos didinimas
-  const gallery = document.querySelector('.gallery-grid');
+  // Galerijos lightbox
+  const gallery = document.querySelector('.gallery');
   if (gallery) {
-    gallery.addEventListener('click', e => {
+    gallery.addEventListener('click', (e) => {
       if (e.target.tagName === 'IMG') {
         openLightbox(e.target);
       }
@@ -31,31 +29,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openLightbox(img) {
-    // Sukuriam foną
     const lightboxBg = document.createElement('div');
     lightboxBg.id = 'lightboxBg';
-    lightboxBg.style.position = 'fixed';
-    lightboxBg.style.top = '0';
-    lightboxBg.style.left = '0';
-    lightboxBg.style.width = '100%';
-    lightboxBg.style.height = '100%';
-    lightboxBg.style.backgroundColor = 'rgba(0,0,0,0.8)';
-    lightboxBg.style.display = 'flex';
-    lightboxBg.style.justifyContent = 'center';
-    lightboxBg.style.alignItems = 'center';
-    lightboxBg.style.zIndex = '10000';
-    lightboxBg.style.cursor = 'pointer';
+    Object.assign(lightboxBg.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: '10000',
+      cursor: 'pointer',
+    });
 
-    // Sukuriam didelį paveikslėlį
     const largeImg = document.createElement('img');
     largeImg.src = img.src;
     largeImg.alt = img.alt;
-    largeImg.style.maxWidth = '90%';
-    largeImg.style.maxHeight = '90%';
-    largeImg.style.borderRadius = '10px';
-    largeImg.style.boxShadow = '0 0 20px rgba(0,0,0,0.7)';
-    largeImg.style.transition = 'transform 0.3s ease';
-    largeImg.style.transform = 'scale(0.8)';
+    Object.assign(largeImg.style, {
+      maxWidth: '90%',
+      maxHeight: '90%',
+      borderRadius: '10px',
+      boxShadow: '0 0 20px rgba(0,0,0,0.7)',
+      transition: 'transform 0.3s ease',
+      transform: 'scale(0.8)',
+    });
+
     setTimeout(() => largeImg.style.transform = 'scale(1)', 10);
 
     lightboxBg.appendChild(largeImg);
@@ -69,26 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fade-in efektas sekcijoms
+  // Fade-in animacija sekcijoms
   const faders = document.querySelectorAll('.section');
   const appearOptions = {
     threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
+    rootMargin: "0px 0px -50px 0px",
   };
 
-  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add('fade-in');
-        appearOnScroll.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('fade-in');
+      observer.unobserve(entry.target);
     });
   }, appearOptions);
 
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
+  faders.forEach(fader => appearOnScroll.observe(fader));
 
 });
