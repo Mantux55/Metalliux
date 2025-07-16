@@ -7,87 +7,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header su meniu -->
   <header>
-    <div class="container">
-      <h1>Metalliux</h1>
-      <nav>
-        <ul>
-          <li><a href="#apie">Apie mus</a></li>
-          <li><a href="#paslaugos">Paslaugos</a></li>
-          <li><a href="#galerija">Galerija</a></li>
-          <li><a href="#atsiliepimai">Atsiliepimai</a></li>
-          <li><a href="#kontaktai">Kontaktai</a></li>
-        </ul>
-      </nav>
+    <h1>Metalliux</h1>
+    <div class="header-contact">
+      <a href="mailto:Mantasmantas@gmail.com">Mantasmantas@gmail.com</a>
+      <a href="tel:+37068193215">Tel. 068193215</a>
     </div>
   </header>
 
-  <!-- Hero sekcija -->
+  <nav class="container">
+    <ul>
+      <li><a href="#apie">Apie mus</a></li>
+      <li><a href="#paslaugos">Paslaugos</a></li>
+      <li><a href="#galerija">Galerija</a></li>
+      <li><a href="#kontaktai">Kontaktai</a></li>
+    </ul>
+  </nav>
+
   <section class="hero">
-    <div class="container">
-      <h2>Kokybiški metalo gaminiai Jūsų namams ir verslui</h2>
-      <p>Balkonai, turėklai, vartai ir dar daugiau</p>
+    <h2>Metaliniai balkonai, turėklai ir konstrukcijos</h2>
+    <p>Profesionalūs sprendimai jūsų erdvėms</p>
+  </section>
+
+  <section id="apie" class="section container">
+    <h2>Apie mus</h2>
+    <p>Metalliux gamina bei montuoja aukštos kokybės metalo gaminius: balkonų turėklus, vartus, laiptus ir kitas konstrukcijas visoje Lietuvoje.</p>
+  </section>
+
+  <section id="paslaugos" class="section container">
+    <h2>Paslaugos</h2>
+    <ul class="services">
+      <li>Metaliniai balkonai</li>
+      <li>Laiptų turėklai</li>
+      <li>Vartai ir varteliai</li>
+      <li>Konstrukcijų gamyba pagal užsakymą</li>
+    </ul>
+  </section>
+
+  <section id="galerija" class="section container">
+    <h2>Galerija</h2>
+    <div class="gallery">
+      <img src="img1.jpg" alt="Balkonas 1">
+      <img src="img2.jpg" alt="Turėklai 2">
+      <img src="img3.jpg" alt="Laiptai 3">
     </div>
   </section>
 
-  <!-- Apie mus -->
-  <section id="apie" class="section">
-    <div class="container">
-      <h2>Apie mus</h2>
-      <p>"Metalliux" specializuojasi metalo gaminių gamyboje – nuo balkonų ir turėklų iki individualių konstrukcijų. Dirbame tik su kokybiškomis medžiagomis ir užtikriname patikimą aptarnavimą.</p>
-    </div>
+  <section id="kontaktai" class="section container">
+    <h2>Kontaktai</h2>
+    <p>Susisiekite el. paštu <a href="mailto:Mantasmantas@gmail.com">Mantasmantas@gmail.com</a> arba telefonu <a href="tel:+37068193215">068193215</a>.</p>
   </section>
 
-  <!-- Paslaugos -->
-  <section id="paslaugos" class="section">
-    <div class="container">
-      <h2>Paslaugos</h2>
-      <ul class="services">
-        <li>Balkonų gamyba</li>
-        <li>Turėklai</li>
-        <li>Tvorelės ir vartai</li>
-        <li>Laiptų konstrukcijos</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Galerija -->
-  <section id="galerija" class="section">
-    <div class="container">
-      <h2>Galerija</h2>
-      <div class="gallery">
-        <!-- Čia bus įkeltos nuotraukos su JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Atsiliepimai -->
-  <section id="atsiliepimai" class="section">
-    <div class="container">
-      <h2>Atsiliepimai</h2>
-      <div class="testimonials">
-        <blockquote>
-          "Puikus darbas! Greitai ir kokybiškai!" – Tomas
-        </blockquote>
-        <blockquote>
-          "Rekomenduoju 100%!" – Ieva
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontaktai -->
-  <section id="kontaktai" class="section">
-    <div class="container">
-      <h2>Kontaktai</h2>
-      <p>El. paštas: <a href="mailto:Mantasmantas318@gmail.com">Mantasmantas318@gmail.com</a></p>
-      <p>Telefonas: <a href="tel:068193215">068193215</a></p>
-    </div>
-  </section>
-
-  <!-- Į viršų mygtukas -->
-  <button id="topBtn">&#8679; Į viršų</button>
+  <button id="topBtn">Į viršų</button>
 
   <script src="script.js"></script>
 </body>
